@@ -1,0 +1,2 @@
+# ECS and Raylib template.
+
