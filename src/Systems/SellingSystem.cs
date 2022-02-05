@@ -24,8 +24,8 @@ namespace PenBreakout.Systems
                     var myRender = entity.GetComponent<Render>();
                     foreach (var sellSquare in sellSquares)
                     {
-                        var sqRender = sellSquare.GetComponent<Render>();
-                        if (Raylib_cs.Raylib.CheckCollisionPointRec(myRender.GetCenter(), sqRender.Rectangle))
+                        var sqPos = sellSquare.GetComponent<Position>();
+                        if (Raylib_cs.Raylib.CheckCollisionPointRec(myRender.GetCenter(), sqPos.Rectangle))
                         {
                             entitiesToDelete.Add(entity);
                         }

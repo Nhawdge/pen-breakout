@@ -34,10 +34,11 @@ namespace PenBreakout.Systems
             foreach (var entity in allEntities)
             {
                 var myPos = entity.GetComponent<Position>();
-                //Console.WriteLine($"Rendering {entity.Id}");
                 if (CanRender(entity))
                 {
+
                     var myRender = entity.GetComponent<Render>();
+                    Console.WriteLine($"Rendering {entity.Id}, {myRender.Texture.id}");
                     var destinationRect = new Raylib_cs.Rectangle(myPos.X, myPos.Y, 64, 64);
 
                     Raylib_cs.Raylib.DrawTexturePro(myRender.Texture, myRender.Rectangle, myPos.Rectangle, new Vector2(0), 0f, Raylib_cs.Color.WHITE);
