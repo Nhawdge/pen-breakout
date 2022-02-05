@@ -1,7 +1,7 @@
 namespace PenBreakout.Components
 {
-    public abstract class Component
+    public class Controllable : Component
     {
-        
+
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using TemplateProject.Entities;
+using PenBreakout.Entities;
 
-namespace TemplateProject.Systems
+namespace PenBreakout.Systems
 {
     public abstract class System
     {
