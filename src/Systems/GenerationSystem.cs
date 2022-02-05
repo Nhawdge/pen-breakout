@@ -17,7 +17,10 @@ namespace PenBreakout.Systems
             engine.Entities.Add(CreatePig());
             engine.Entities.Add(CreatePig());
 
-            
+
+            engine.Entities.Add(CreateSellPoint());
+
+
             engine.Entities.Add(CreatePlayer());
         }
 

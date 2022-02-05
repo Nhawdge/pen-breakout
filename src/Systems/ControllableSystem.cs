@@ -39,7 +39,10 @@ namespace PenBreakout.Systems
             }
             if (IsMouseButtonDown(MouseButton.MOUSE_LEFT_BUTTON))
             {
-                player.Components.Add(new Action(Actions.Lasso, GetMousePosition()));
+                if (player.GetComponent<Action>() == null)
+                {
+                    player.Components.Add(new Action(Actions.Lasso, GetMousePosition()));
+                }
             }
         }
     }

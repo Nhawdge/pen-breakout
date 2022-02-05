@@ -17,16 +17,22 @@ namespace PenBreakout.Systems
             {
                 if (AiCanMove(entity))
                 {
-                    var myPos = entity.GetComponent<Position>();
-                    myPos.Direction += rand.Next(-1, 1);
-                    var futureX = Math.Cos(myPos.Direction) * myPos.Speed;
-                    var futureY = Math.Sin(myPos.Direction) * myPos.Speed;
-                    var futurePos = new Vector2((int)futureX, (int)futureY);
-                    //Console.WriteLine($"{entity.Id} is moving to {futurePos} ({futureX}, {futureY}), Direction: {myPos.Direction}");
+                    if (rand.Next(0, 100) > 50)
+                    {
+                        var myPos = entity.GetComponent<Position>();
+                        if (rand.Next(0, 100) > 75)
+                        {
+                            myPos.Direction += rand.Next(-1, 1);
+                        }
+                        var futureX = Math.Cos(myPos.Direction) * myPos.Speed;
+                        var futureY = Math.Sin(myPos.Direction) * myPos.Speed;
+                        var futurePos = new Vector2((int)futureX, (int)futureY);
+                        //Console.WriteLine($"{entity.Id} is moving to {futurePos} ({futureX}, {futureY}), Direction: {myPos.Direction}");
 
-                    myPos.X += (int)futurePos.X;
-                    myPos.Y += (int)futurePos.Y;
+                        myPos.X += (int)futurePos.X;
+                        myPos.Y += (int)futurePos.Y;
 
+                    }
                 }
             }
         }

@@ -1,3 +1,4 @@
+using System.Runtime;
 using System.Collections.Generic;
 using PenBreakout.Entities;
 using static Raylib_cs.Raylib;
@@ -38,16 +39,23 @@ namespace PenBreakout.Systems
                 {
                     var myRender = entity.GetComponent<Render>();
                     var destinationRect = new Raylib_cs.Rectangle(myPos.X, myPos.Y, 64, 64);
-                    Raylib_cs.Raylib.DrawTexturePro(myRender.Texture, myRender.Rectangle, destinationRect, new Vector2(0), 0f, Raylib_cs.Color.WHITE);
+
+                    Raylib_cs.Raylib.DrawTexturePro(myRender.Texture, myRender.Rectangle, myPos.Rectangle, new Vector2(0), 0f, Raylib_cs.Color.WHITE);
                 }
                 var actions = entity.GetComponents<PenBreakout.Components.Action>();
                 foreach (var action in actions)
                 {
                     if (action.ActiveAction == Actions.Lasso)
                     {
-                        DrawLine(myPos.X, myPos.Y, (int)action.Target.X, (int)action.Target.Y, Raylib_cs.Color.BROWN);
-                    }
+                        var yDistance = action.Target.Y - myPos.Y;
+                        var xDistance = action.Target.X - myPos.X;
+                        var angle = Math.Atan2(yDistance, xDistance);
 
+                        int destX = (int)(myPos.X + (float)Math.Cos(angle) * Math.Min(action.Duration, 100));
+                        int destY = (int)(myPos.Y + (float)Math.Sin(angle) * Math.Min(action.Duration, 100));
+
+                        DrawLine(myPos.X, myPos.Y, destX, destY, Raylib_cs.Color.BROWN);
+                    }
                 }
             }
         }

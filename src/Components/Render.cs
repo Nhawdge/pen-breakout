@@ -1,3 +1,4 @@
+using System.Numerics;
 using Raylib_cs;
 
 namespace PenBreakout.Components
@@ -16,6 +17,10 @@ namespace PenBreakout.Components
         {
             Texture = Raylib.LoadTexture(path);
             Rectangle = new Rectangle(0, 0, Texture.width, Texture.height);
+        }
+        public Vector2 GetCenter()
+        {
+            return new Vector2(Rectangle.x + Rectangle.width / 2, Rectangle.y + Rectangle.height / 2);
         }
     }
 }

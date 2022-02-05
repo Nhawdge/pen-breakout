@@ -17,13 +17,23 @@ namespace PenBreakout.Systems
             foreach (var entity in allEntities)
             {
                 var actions = entity.GetComponents<Action>();
+                Action actionCompleted = null;
                 foreach (var action in actions)
                 {
                     if (action.ActiveAction == Actions.Lasso)
                     {
-                        action.Duration++;
+                        action.Duration += action.CountDirection;
+                        if (action.Duration > 100)
+                        {
+                            action.CountDirection = -5;
+                        }
+                        if (action.Duration < 0)
+                        {
+                            actionCompleted = action;
+                        }
                     }
                 }
+                entity.Components.Remove(actionCompleted);
             }
         }
     }
