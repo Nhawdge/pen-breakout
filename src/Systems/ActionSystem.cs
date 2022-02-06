@@ -1,8 +1,6 @@
-using System.Threading;
 using System.Collections.Generic;
 using PenBreakout.Entities;
 using PenBreakout.Components;
-using System.Linq;
 
 namespace PenBreakout.Systems
 {

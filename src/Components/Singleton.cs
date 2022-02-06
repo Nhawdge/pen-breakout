@@ -2,7 +2,8 @@ namespace PenBreakout.Components
 {
     public class Singleton : Component
     {
-        GameState State = GameState.Menu;
+        public GameState State = GameState.Menu;
+        public int Score = 0;
     }
 
     public enum GameState

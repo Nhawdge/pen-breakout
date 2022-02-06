@@ -20,6 +20,7 @@ public class Engine
     private void Load()
     {
         Systems.Add(new RenderingSystem());
+        Systems.Add(new UiSystem());
         Systems.Add(new GenerationSystem());
         Systems.Add(new AiMovementSystem());
         Systems.Add(new ControllableSystem());
@@ -27,8 +28,10 @@ public class Engine
         Systems.Add(new SellingSystem());
         Systems.Add(new SoundSystem());
 
+
         var singleton = new Entity();
         singleton.Components.Add(new Singleton());
+        Singleton = singleton;
     }
 
     public void GameLoop()

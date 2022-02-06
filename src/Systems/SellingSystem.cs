@@ -28,6 +28,7 @@ namespace PenBreakout.Systems
                         if (Raylib_cs.Raylib.CheckCollisionPointRec(myRender.GetCenter(), sqPos.Rectangle))
                         {
                             entitiesToDelete.Add(entity);
+                            Engine.Singleton.GetComponent<Singleton>().Score += 10;
                         }
                     }
                 }
