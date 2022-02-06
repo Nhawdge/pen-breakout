@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using PenBreakout.Entities;
 using PenBreakout.Components;
 using System.Linq;
+using System;
 
 namespace PenBreakout.Systems
 {
@@ -17,6 +18,7 @@ namespace PenBreakout.Systems
         {
             var sellSquares = allEntities.Where(x => x.GetComponent<SellSquare>() != null);
             var entitiesToDelete = new List<Entity>();
+            Console.WriteLine("checking");
             foreach (var entity in allEntities)
             {
                 if (entity.GetComponent<FarmAi>() != null)

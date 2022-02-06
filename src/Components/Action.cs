@@ -1,3 +1,4 @@
+using System;
 using System.Numerics;
 namespace PenBreakout.Components
 {
@@ -8,6 +9,9 @@ namespace PenBreakout.Components
         public int Duration { get; set; }
         public int CountDirection { get; set; } = 3;
         public Vector2 Target { get; set; }
+        public Vector2 DrawPoint { get; set; }
+        public Guid AttachedEntity { get; set; }
+
         public Action(Actions action, Vector2 target)
         {
             ActiveAction = action;

@@ -36,7 +36,7 @@ public class Engine
 
     public void GameLoop()
     {
-        Raylib.InitWindow(800, 800, "Template");
+        Raylib.InitWindow(800, 800, "Pen Breakout (A poorly made experience by Nhawdge)");
 
         foreach (var system in Systems)
         {
