@@ -28,11 +28,19 @@ namespace PenBreakout.Systems
                         if (action.AttachedEntity != Guid.Empty)
                         {
                             var attachedEntity = allEntities.Find(x => x.Id == action.AttachedEntity);
-                            var attachedPos = attachedEntity.GetComponent<Position>();
-                            if (attachedPos != null)
+                            if (attachedEntity == null)
                             {
-                                attachedPos.X = myPos.X;
-                                attachedPos.Y = myPos.Y;
+                                entity.Components.Remove(actionCompleted);
+
+                            }
+                            else
+                            {
+                                var attachedPos = attachedEntity.GetComponent<Position>();
+                                if (attachedPos != null)
+                                {
+                                    attachedPos.X = myPos.X;
+                                    attachedPos.Y = myPos.Y;
+                                }
                             }
                         }
                         if (action.Duration > 100)
@@ -40,10 +48,9 @@ namespace PenBreakout.Systems
                             foreach (var target in allEntities.Where(x => x.GetComponent<FarmAi>() != null))
                             {
                                 var targetPos = target.GetComponent<Position>();
-                                Console.WriteLine("Animal Attached");
                                 if (Raylib_cs.Raylib.CheckCollisionPointRec(action.DrawPoint, targetPos.Rectangle))
                                 {
-                                    action.CountDirection = 0;
+                                    //action.CountDirection = 0;
                                     action.AttachedEntity = target.Id;
                                 }
                                 else

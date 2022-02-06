@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Winexe</OutputType>
+    <OutputType>winexe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>disable</ImplicitUsings>
 
@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-      <Content Include="src\**\*" Exclude="bin\**;obj\**" />    
+      <Content Include="src\**\*" Exclude="bin\**;obj\**" />
     </ItemGroup>
   <ItemGroup>
     <None Update="src/Assets/*.png">

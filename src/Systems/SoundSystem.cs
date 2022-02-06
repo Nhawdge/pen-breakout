@@ -9,7 +9,6 @@ namespace PenBreakout.Systems
 {
     public class SoundSystem : System
     {
-
         Music BackgroundMusic { get; set; }
 
         public override void Load(Engine engine)

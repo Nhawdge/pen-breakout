@@ -18,16 +18,15 @@ namespace PenBreakout.Systems
         {
             var sellSquares = allEntities.Where(x => x.GetComponent<SellSquare>() != null);
             var entitiesToDelete = new List<Entity>();
-            Console.WriteLine("checking");
             foreach (var entity in allEntities)
             {
                 if (entity.GetComponent<FarmAi>() != null)
                 {
-                    var myRender = entity.GetComponent<Render>();
+                    var myPos = entity.GetComponent<Position>();
                     foreach (var sellSquare in sellSquares)
                     {
                         var sqPos = sellSquare.GetComponent<Position>();
-                        if (Raylib_cs.Raylib.CheckCollisionPointRec(myRender.GetCenter(), sqPos.Rectangle))
+                        if (Raylib_cs.Raylib.CheckCollisionPointRec(myPos.GetCenter(), sqPos.Rectangle))
                         {
                             entitiesToDelete.Add(entity);
                             Engine.Singleton.GetComponent<Singleton>().Score += 10;

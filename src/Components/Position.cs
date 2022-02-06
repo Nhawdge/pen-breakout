@@ -21,6 +21,10 @@ namespace PenBreakout.Components
         }
 
         public Vector2 AsVector() => new Vector2(X, Y);
+        public Vector2 GetCenter()
+        {
+            return new Vector2(X + (Width / 2), Y + (Height / 2));
+        }
 
     }
 }
