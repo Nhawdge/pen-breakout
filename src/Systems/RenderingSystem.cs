@@ -10,19 +10,12 @@ namespace PenBreakout.Systems
 {
     public class RenderingSystem : System
     {
-        public Raylib_cs.Texture2D pigTexture { get; set; }
-        public Raylib_cs.Texture2D horseTexture { get; set; }
-        public Raylib_cs.Texture2D fenceTexture { get; set; }
         public Raylib_cs.Texture2D barnyardTexture { get; set; }
         private Engine Engine { get; set; }
 
         public override void Load(Engine engine)
         {
             this.Engine = engine;
-            // Load Assets
-            pigTexture = LoadTexture("src/Assets/pig.png");
-            horseTexture = LoadTexture("src/Assets/horse.png");
-            fenceTexture = LoadTexture("src/Assets/fence.png");
             barnyardTexture = LoadTexture("src/Assets/barnyard.png");
         }
 
@@ -38,7 +31,7 @@ namespace PenBreakout.Systems
                 {
 
                     var myRender = entity.GetComponent<Render>();
-                    Console.WriteLine($"Rendering {entity.Id}, {myRender.Texture.id}");
+                    //Console.WriteLine($"Rendering {entity.Id}, {myRender.Texture.id}");
                     var destinationRect = new Raylib_cs.Rectangle(myPos.X, myPos.Y, 64, 64);
 
                     Raylib_cs.Raylib.DrawTexturePro(myRender.Texture, myRender.Rectangle, myPos.Rectangle, new Vector2(0), 0f, Raylib_cs.Color.WHITE);

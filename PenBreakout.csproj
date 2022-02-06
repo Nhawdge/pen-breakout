@@ -14,4 +14,10 @@
   <ItemGroup>
       <Content Include="src\**\*" Exclude="bin\**;obj\**" />    
     </ItemGroup>
+  <ItemGroup>
+    <None Update="src/Assets/*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </None>
+  </ItemGroup>
 </Project>

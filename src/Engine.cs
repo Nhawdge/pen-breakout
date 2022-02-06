@@ -25,6 +25,7 @@ public class Engine
         Systems.Add(new ControllableSystem());
         Systems.Add(new ActionSystem());
         Systems.Add(new SellingSystem());
+        Systems.Add(new SoundSystem());
 
         var singleton = new Entity();
         singleton.Components.Add(new Singleton());
